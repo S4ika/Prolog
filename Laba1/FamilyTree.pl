@@ -103,3 +103,7 @@ mother(X):-mother(Y,X),write(Y).
 father(X,Y):-parent(X,Y),man(X).
 
 father(X):-father(Y,X),write(Y).
+
+brother(X,Y):-parent(A,X),man(X),parent(A,Y),woman(A),X\=Y.
+
+brothers(X):-brother(Y,X),write(Y),nl,fail.
