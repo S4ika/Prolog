@@ -126,3 +126,6 @@ grand_mas(X):-grand_ma(Y,X),write(Y),nl,fail.
 
 grand_pa_and_son(X,Y):-grand_pa(X,Y),man(Y).
 grand_pa_and_son(X,Y):-grand_pa(Y,X),man(X).
+
+grand_ma_and_son(X,Y):-grand_ma(X,Y),man(Y).
+grand_ma_and_son(X,Y):-grand_ma(Y,X),man(X).
