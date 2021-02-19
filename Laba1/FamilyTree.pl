@@ -132,3 +132,6 @@ grand_ma_and_son(X,Y):-grand_ma(Y,X),man(X).
 
 uncle(X,Y):-parent(A,Y),brother(X,A).
 uncles(X):-uncle(Y,X),write(Y),nl,fail.
+
+aunt(X,Y):-parent(A,Y),sister(X,A).
+aunts(X):-aunt(Y,X),write(Y),nl,fail.
