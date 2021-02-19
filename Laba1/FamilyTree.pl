@@ -111,3 +111,7 @@ brothers(X):-brother(Y,X),write(Y),nl,fail.
 sister(X,Y):-parent(A,X),parent(A,Y),woman(X),woman(A),X\=Y.
 
 sisters(X):-sister(Y,X),write(Y),nl,fail.
+
+b_s(X,Y):-parent(A,X),parent(A,Y),woman(A),X\=Y.
+
+b_s(X):-b_s(Y,X),write(Y),nl,fail.
