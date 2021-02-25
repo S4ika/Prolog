@@ -30,3 +30,7 @@ fib(N,X):-N1 is N-1,fib(N1,X1),N2 is N-2,fib(N2,X2), X is X1+X2.
 fib_vniz(N,X,_,N,X):-!.
 fib_vniz(I,N1,N2,N,X):-I1 is I+1,N3 is N1+N2,fib_vniz(I1,N2,N3,N,X).
 fib_vniz(N,X):-fib_vniz(1,1,1,N,X).
+
+%Task 9
+pr_cifr(0,1):-!.
+pr_cifr(N,X):-N1 is N div 10,pr_cifr(N1,X1),X is X1*(N mod 10).
