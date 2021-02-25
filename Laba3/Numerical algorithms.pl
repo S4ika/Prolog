@@ -21,3 +21,7 @@ sum1(N,S):-sum1(N,0,S).
 sum1(0,S,S):-!.
 sum1(A,Sum,S):-Am is A mod 10, Ad is A div 10,
                Sum1 is Sum+Am,sum1(Ad,Sum1,S).
+%Task 5 vverx
+fib(1,1):-!.
+fib(2,1):-!.
+fib(N,X):-N1 is N-1,fib(N1,X1),N2 is N-2,fib(N2,X2), X is X1+X2.
