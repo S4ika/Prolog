@@ -34,3 +34,8 @@ fib_vniz(N,X):-fib_vniz(1,1,1,N,X).
 %Task 9
 pr_cifr(0,1):-!.
 pr_cifr(N,X):-N1 is N div 10,pr_cifr(N1,X1),X is X1*(N mod 10).
+
+%Task 10
+pr_cifr_vniz(0,X,_,X):-!.
+pr_cifr_vniz(I,F,N,X):-I1 is I div 10,I2 is I mod 10,F1 is I2*F,pr_cifr_vniz(I1,F1,N,X).
+pr_cifr_vniz(N,X):-pr_cifr_vniz(N,1,N,X).
