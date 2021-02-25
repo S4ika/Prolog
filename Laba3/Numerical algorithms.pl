@@ -25,3 +25,8 @@ sum1(A,Sum,S):-Am is A mod 10, Ad is A div 10,
 fib(1,1):-!.
 fib(2,1):-!.
 fib(N,X):-N1 is N-1,fib(N1,X1),N2 is N-2,fib(N2,X2), X is X1+X2.
+
+%Task 6 vniz
+fib_vniz(N,X,_,N,X):-!.
+fib_vniz(I,N1,N2,N,X):-I1 is I+1,N3 is N1+N2,fib_vniz(I1,N2,N3,N,X).
+fib_vniz(N,X):-fib_vniz(1,1,1,N,X).
