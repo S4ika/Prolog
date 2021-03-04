@@ -35,3 +35,6 @@ find_elem(List,Num):-find_elem(List,0,Num).
 find_elem([],_,_):-write("Nomer bol`she dliny spiska"),!.
 find_elem([H|_],Count,Count):-write(H),!.
 find_elem([_|T],Count,Num):-Count1 is Count+1,find_elem(T,Count1,Num).
+%Task 6
+min_list_up([H],H):-!.
+min_list_up([H|T],M):-min_list_up(T,M1),(H<M1->M is H;M is M1).
