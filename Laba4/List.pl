@@ -38,3 +38,7 @@ find_elem([_|T],Count,Num):-Count1 is Count+1,find_elem(T,Count1,Num).
 %Task 6
 min_list_up([H],H):-!.
 min_list_up([H|T],M):-min_list_up(T,M1),(H<M1->M is H;M is M1).
+%Task 7
+min_list_down([H|T],Min):-min_list_down([H|T],H,Min).
+min_list_down([],M,M):-!.
+min_list_down([H|T],M,Min):-H<M,M1 is H,min_list_down(T,M1,Min).
