@@ -30,3 +30,8 @@ umnozh:-read_list(3,List),in_list(List,X),in_list(List,Y),Z is X*Y,write(Z),nl,f
 append1([],List2,List2).%отсутствие ! дает возможность перебора например
 %append1(X,Y,[1,2,3,4]).
 append1([H|Tail1],List2,[H|Tail2]):-append1(Tail1,List2,Tail2).
+%Task 5
+find_elem(List,Num):-find_elem(List,0,Num).
+find_elem([],_,_):-write("Nomer bol`she dliny spiska"),!.
+find_elem([H|_],Count,Count):-write(H),!.
+find_elem([_|T],Count,Num):-Count1 is Count+1,find_elem(T,Count1,Num).
