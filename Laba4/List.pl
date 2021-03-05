@@ -75,4 +75,13 @@ povtor_el([H|T],El,Count):-H\=El,povtor_el(T,El,Count).
 size_list(List,N):-size_list(List,0,N).
 size_list([],Size,Size):-!.
 size_list([_|T],Count,N):-Count1 is Count+1,size_list(T,Count1,N).
+%Task 1.1
+pr1_1(List,Res):-find_max_elem(List,Max),last_max(List,Max,Place),size_list(List,N),Res is N-Place.
+find_max_elem([H|T],Max):-find_max_elem([H|T],H,Max).
+find_max_elem([],Max,Max):-!.
+find_max_elem([H|T],A,Max):-H > A,A1 is H,find_max_elem(T,A1,Max).
+find_max_elem([H|T],A,Max):-H=<A,find_max_elem(T,A,Max).
 
+last_max(List,Max,Place):-last_max(List,0,_,Max,Place).
+last_max([],_,Max,_,Max):-!.
+last_max([H|T],A,A2,Max,Place):-A1 is A+1,(Max =:= H ->A3 is A1,last_max(T,A1,A3,Max,Place);last_max(T,A1,A2,Max,Place)).
