@@ -48,3 +48,6 @@ pr8:-write("Введите размер списка"),nl,read(N),write("Вве�
 my_reverse(List,Rlist):-my_reverse(List,Rlist,[]).
 my_reverse([],Rlist,Rlist).
 my_reverse([H|T],List,Rlist):-my_reverse(T,List,[H|Rlist]).
+%Task 11
+p([],_):-!.
+p([Head|Tail],[HeadList|TailList]):-(Head is HeadList -> p(Tail,TailList);p([Head|Tail],TailList)).
