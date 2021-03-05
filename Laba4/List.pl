@@ -44,3 +44,7 @@ min_list_down([],M,M):-!.
 min_list_down([H|T],M,Min):-H<M,M1 is H,min_list_down(T,M1,Min).
 %Task 8
 pr8:-write("Введите размер списка"),nl,read(N),write("Введите список : "),nl,read_list(N,List),write("Минимальный элемент в списке :"),nl,min_list_down(List,Min),write(Min).
+%Task 10
+my_reverse(List,Rlist):-my_reverse(List,Rlist,[]).
+my_reverse([],Rlist,Rlist).
+my_reverse([H|T],List,Rlist):-my_reverse(T,List,[H|Rlist]).
