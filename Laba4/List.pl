@@ -51,3 +51,7 @@ my_reverse([H|T],List,Rlist):-my_reverse(T,List,[H|Rlist]).
 %Task 11
 p([],_):-!.
 p([Head|Tail],[HeadList|TailList]):-(Head is HeadList -> p(Tail,TailList);p([Head|Tail],TailList)).
+%Task 12
+del_el(List,Num):-del_el(List,Res,Num),write(Res).
+del_el([_|T],T,0):-!.
+del_el([H|T1],[H|T2],Num):-Num1 is Num-1,del_el(T1,T2,Num1).
