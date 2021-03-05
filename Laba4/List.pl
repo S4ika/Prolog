@@ -71,4 +71,8 @@ povtor_el(List,El):-povtor_el(List,El,0).
 povtor_el([],_,Count):-write(Count),!.
 povtor_el([H|T],El,Count):-H =:= El,Count1 is Count + 1,povtor_el(T,El,Count1).
 povtor_el([H|T],El,Count):-H\=El,povtor_el(T,El,Count).
+%Task 17
+size_list(List,N):-size_list(List,0,N).
+size_list([],Size,Size):-!.
+size_list([_|T],Count,N):-Count1 is Count+1,size_list(T,Count1,N).
 
