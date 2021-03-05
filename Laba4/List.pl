@@ -85,3 +85,6 @@ find_max_elem([H|T],A,Max):-H=<A,find_max_elem(T,A,Max).
 last_max(List,Max,Place):-last_max(List,0,_,Max,Place).
 last_max([],_,Max,_,Max):-!.
 last_max([H|T],A,A2,Max,Place):-A1 is A+1,(Max =:= H ->A3 is A1,last_max(T,A1,A3,Max,Place);last_max(T,A1,A2,Max,Place)).
+%Task 1.2
+min_elem_index(List,Index):- min_list_down(List,Elem),list_el_number(List,Elem,Index),!.
+
