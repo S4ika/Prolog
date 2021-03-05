@@ -66,4 +66,9 @@ unique_list(List,Res):-unique_list(List,[],Res).
 unique_list([],Res,Res):-!.
 unique_list([H|T],List,Res):-not(in_list(List,H)),unique_list(T,[H|List],Res).
 unique_list([H|T],List,Res):-in_list(List,H),unique_list(T,List,Res).
+%Task 16
+povtor_el(List,El):-povtor_el(List,El,0).
+povtor_el([],_,Count):-write(Count),!.
+povtor_el([H|T],El,Count):-H =:= El,Count1 is Count + 1,povtor_el(T,El,Count1).
+povtor_el([H|T],El,Count):-H\=El,povtor_el(T,El,Count).
 
