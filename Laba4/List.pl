@@ -58,3 +58,6 @@ del_el([H|T1],[H|T2],Num):-Num1 is Num-1,del_el(T1,T2,Num1).
 %Task 13
 del_same_el([],_,[]):-!.
 del_same_el([H|T],El,End):-(H=:=El->del_same_el(T,El,End);End = [H|A],del_same_el(T,El,A)).
+%Task 14
+povtor_el([]):-!.
+povtor_el([H|T]):-not(in_list(T,H)),povtor_el(T).
