@@ -61,3 +61,9 @@ del_same_el([H|T],El,End):-(H=:=El->del_same_el(T,El,End);End = [H|A],del_same_e
 %Task 14
 povtor_el([]):-!.
 povtor_el([H|T]):-not(in_list(T,H)),povtor_el(T).
+%Task 15
+unique_list(List,Res):-unique_list(List,[],Res).
+unique_list([],Res,Res):-!.
+unique_list([H|T],List,Res):-not(in_list(List,H)),unique_list(T,[H|List],Res).
+unique_list([H|T],List,Res):-in_list(List,H),unique_list(T,List,Res).
+
