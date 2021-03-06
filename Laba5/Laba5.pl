@@ -90,3 +90,27 @@ pr_work:-Worker=[_,_,_],
     in_list(Worker,[semenov,_,_,N1]),
     in_list(Worker,[_,tokar,_,N2]),N1>N2,
 write(Worker),!.
+
+%Task 5. 
+%[напиток,сосуд]
+pr_zizha:-Zizha=[_,_,_,_],
+    in_list(Zizha,[_,butilka]),
+    in_list(Zizha,[_,stakan]),
+    in_list(Zizha,[_,kuvshin]),
+    in_list(Zizha,[_,banka]),
+
+    in_list(Zizha,[milk,_]),
+    in_list(Zizha,[limonad,_]),
+    in_list(Zizha,[kvas,_]),
+    in_list(Zizha,[water,_]),
+
+    not(in_list(Zizha,[water,bottle])),
+    not(in_list(Zizha,[milk,bottle])),
+    not(in_list(Zizha,[limonad,banka])),
+    not(in_list(Zizha,[water,banka])),
+    %сосуд с лимонадом находится между кувшином  и сосудом с квасом
+    next_to([limonad,_],[_,kuvshin],Zizha),
+    next_to([limonad,_],[kvas,_],Zizha),
+    next_to([_,stakan],[milk,_],Zizha),
+    next_to([_,stakan],[_,banka],Zizha),
+   write(Zizha),!.
