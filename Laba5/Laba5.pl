@@ -40,3 +40,18 @@ pr_ein:- Houses=[_,_,_,_,_],
 		in_list(Houses,[_,WHO2,_,zebra,_]),
 		write(Houses),
 		write(WHO1),nl,write(WHO2).
+		
+%Task 2
+%[фамилия,цвет волос]
+pr_friends:-Friends=[_,_,_],
+    in_list(Friends,[belokurov,_]),
+    in_list(Friends,[rizhov,_]),
+    in_list(Friends,[chernov,_]),
+    in_list(Friends,[_,white]),
+    in_list(Friends,[_,black]),
+    in_list(Friends,[_,red]),
+    not(in_list(Friends,[belokurov,white])),
+    not(in_list(Friends,[belokurov,black])),
+    not(in_list(Friends,[rizhov,red])),
+    not(in_list(Friends,[chernov,black])),
+     write(Friends),!.
