@@ -87,4 +87,9 @@ last_max([],_,Max,_,Max):-!.
 last_max([H|T],A,A2,Max,Place):-A1 is A+1,(Max =:= H ->A3 is A1,last_max(T,A1,A3,Max,Place);last_max(T,A1,A2,Max,Place)).
 %Task 1.2
 min_elem_index(List,Index):- min_list_down(List,Elem),list_el_numb(List,Elem,Index),!.
+%Task 1.15
+local_min([H1|[H2|_]],0):-H1<H2,!.
+local_min([H1|[H2]],1):-H2<H1,!.
+local_min([H1|[H2|[H3|_]]],1):-H2<H1,H2<H3,!.
+local_min([_|T],I):-I1 is I-1,local_min(T,I1).
 
