@@ -111,6 +111,12 @@ cut(List,Index,Place,New):-cut(List,0,Index,Place,New).
 cut(_,Count,_,Count,_):-!.
 cut([_|T],Count,Index,Place,New):-Count < Index,Count1 is Count + 1,cut(T,Count1,Index,Place,New).
 cut([H|T],Count,Index,Place,New):-Count >= Index,Count < Place,Count1 is Count + 1,New = [H|A],cut(T,Count1,Index,Place,A).
+%Task 1_37
+less_left(List):-less_left(List,0,0).
+less_left([H1|[H2]],Count,Kolvo):-(H2<H1->(Count1 is Count+1,write(Count1),nl,Kolvo1 is Kolvo + 1),write("Kolvo = "),write(Kolvo1);write("Kolvo ="),write(Kolvo)),!.
+less_left([H1|[H2|T]],Count,Kolvo):-H2<H1,Count1 is Count+1,write(Count1),nl,Kolvo1 is Kolvo + 1,less_left([H2|T],Count1,Kolvo1).
+less_left([H1|[H2|T]],Count,Kolvo):-H2>=H1,Count1 is Count+1,less_left([H2|T],Count1,Kolvo).
+
 
 
 
