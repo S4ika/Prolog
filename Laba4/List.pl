@@ -92,4 +92,13 @@ local_min([H1|[H2|_]],0):-H1<H2,!.
 local_min([H1|[H2]],1):-H2<H1,!.
 local_min([H1|[H2|[H3|_]]],1):-H2<H1,H2<H3,!.
 local_min([_|T],I):-I1 is I-1,local_min(T,I1).
+%Task 1_13Косячная
+replace_before_min(List,Res):-min_index(List,Index),rpl(List,0,Index,Res).
+
+rpl([H|T],Count,Index,Res):-Count1 is Count + 1,insert_back_elem(T,H,New),rpl(New,Count1,Index,Res).
+rpl(Res,Index,Index,Res):-!.
+
+insert_back_elem([], Element, [Element]):-!.
+insert_back_elem([Head|Tail], Element, [Head|Tail2]):-insert_back_elem(Tail, Element, Tail2).
+
 
