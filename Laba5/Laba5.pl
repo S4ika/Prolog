@@ -139,3 +139,29 @@ pr_people:-People=[_,_,_,_],
     not(in_list(People,[voronov,artist])),
 
     write(People).
+	
+%Task7
+	%[имя,страна,спорт]
+	pr_sport:-Sport=[_,_,_],
+
+     Sport=[_,_,_],
+    in_list(Sport,[maikl,_,basketball,_]),
+    in_list(Sport,[saimon,izrail,_,_]),
+    in_list(Sport,[richard,_,_,_]),
+    in_list(Sport,[_,australia,_,_]),
+    in_list(Sport,[_,_,criket,1]),
+    in_list(Sport,[_,america,_,_]),
+    in_list(Sport,[_,_,tennis,_]),
+    in_list(Sport,[_,_,_,2]),
+    in_list(Sport,[_,_,_,3]),
+
+    in_list(Sport,[maikl,_,_,N1]),
+    in_list(Sport,[_,america,_,N2]),N1<N2,
+    in_list(Sport,[saimon,_,_,N3]),
+    in_list(Sport,[_,_,tennis,N4]),N3<N4,
+
+    not(in_list(Sport,[saimon,_,tennis,_])),
+    not(in_list(Sport,[maikl,america,_,_])),
+
+    in_list(Sport,[X,australia,_,_]),write("Australian is "), write(X),nl,
+    in_list(Sport,[richard,_,X1,_]),write("Richard plays in "), write(X1),nl,write(Sport).
