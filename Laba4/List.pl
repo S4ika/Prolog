@@ -100,5 +100,10 @@ rpl(Res,Index,Index,Res):-!.
 
 insert_back_elem([], Element, [Element]):-!.
 insert_back_elem([Head|Tail], Element, [Head|Tail2]):-insert_back_elem(Tail, Element, Tail2).
+%Task 1.43
+kol_min(List,X):- min_list_down(List,El),schetchik(List,El,0,X).
+schetchik([],_,A,A).
+schetchik([H|T],El,A,X):-H=:=El,A1 is A+1,schetchik(T,El,A1,X).
+schetchik([H|T],El,A,X):-H\=El,schetchik(T,El,A,X).
 
 
