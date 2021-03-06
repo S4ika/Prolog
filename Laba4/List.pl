@@ -105,5 +105,12 @@ kol_min(List,X):- min_list_down(List,El),schetchik(List,El,0,X).
 schetchik([],_,A,A).
 schetchik([H|T],El,A,X):-H=:=El,A1 is A+1,schetchik(T,El,A1,X).
 schetchik([H|T],El,A,X):-H\=El,schetchik(T,El,A,X).
+%Task 1_28
+pr1_28(List):-min_index(List,Index),find_max_elem(List,Max),last_max(List,Max,Place),cut(List,Index,Place,New),write_list(New).
+cut(List,Index,Place,New):-cut(List,0,Index,Place,New).
+cut(_,Count,_,Count,_):-!.
+cut([_|T],Count,Index,Place,New):-Count < Index,Count1 is Count + 1,cut(T,Count1,Index,Place,New).
+cut([H|T],Count,Index,Place,New):-Count >= Index,Count < Place,Count1 is Count + 1,New = [H|A],cut(T,Count1,Index,Place,A).
+
 
 
