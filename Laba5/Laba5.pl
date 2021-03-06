@@ -55,3 +55,22 @@ pr_friends:-Friends=[_,_,_],
     not(in_list(Friends,[rizhov,red])),
     not(in_list(Friends,[chernov,black])),
      write(Friends),!.
+
+%Task 3. 
+%[имя,туфли,платье]
+pr_girl:-Girls=[_,_,_],
+    in_list(Girls,[anya,_,_]),
+    in_list(Girls,[valya,_,_]),
+    in_list(Girls,[_,white,_]),
+    in_list(Girls,[_,green,_]),
+    in_list(Girls,[_,blue,_]),
+    in_list(Girls,[_,_,white]),
+    in_list(Girls,[_,_,green]),
+    in_list(Girls,[_,_,blue]),
+    in_list(Girls,[natasha,green,_]),
+    (
+        not(in_list(Girls,[valya,_,white])),
+        not(in_list(Girls,[valya,white,_])),
+        in_list(Girls,[anya,blue,blue]);
+        in_list(Girls,[anya, white,white])),
+write(Girls),!.
