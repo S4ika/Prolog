@@ -56,3 +56,9 @@ build_all_perm_rep(File) :-
 	
 %Task1
 slova(Stroka,Num):-read_str(Stroka,Num,0),write_str(Stroka),write(','),write_str(Stroka),write(','),write_str(Stroka).
+
+%Task2
+schitaem_slova1(List,Num):-read_str(List,_,0),schitaem_slova1(List,0,Num).
+schitaem_slova1([],A,Num):- Num is A + 1,!.
+schitaem_slova1([H|T],A,Num):-(H = 32->A1 is A+1,schitaem_slova1(T,A1,Num);schitaem_slova1(T,A,Num)).
+
