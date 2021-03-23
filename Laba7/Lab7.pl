@@ -62,3 +62,13 @@ schitaem_slova1(List,Num):-read_str(List,_,0),schitaem_slova1(List,0,Num).
 schitaem_slova1([],A,Num):- Num is A + 1,!.
 schitaem_slova1([H|T],A,Num):-(H = 32->A1 is A+1,schitaem_slova1(T,A1,Num);schitaem_slova1(T,A,Num)).
 
+%Task 4
+lnght(List,N):-lnght(List,0,N).
+lnght([],A,A):-!.
+lnght([_|T],A,N):-A1 is A+1,lnght(T,A1,N).
+pr7_4(List):-lnght(List,N),((N =< 5) -> xn(List,N);N1 is N-3,print_b_e(List,0,N1,N)).
+xn(_,0):-!.
+xn([H|_],N):-N1 is N-1,write(H),nl,xn([H|_],N1).
+print_b_e([H|T],A,NE,N):-A1 is A+1,A1=<3,write(H),nl,print_b_e(T,A1,NE,N).
+print_b_e([_|T],A,NE,N):-A1 is A+1,A1>3,A1=<NE,print_b_e(T,A1,NE,N).
+print_b_e([H|T],A,NE,N):-A1 is A+1,A1>NE,A1=<N,write(H),nl,print_b_e(T,A1,NE,N).
