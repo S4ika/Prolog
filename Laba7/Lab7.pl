@@ -72,3 +72,11 @@ xn([H|_],N):-N1 is N-1,write(H),nl,xn([H|_],N1).
 print_b_e([H|T],A,NE,N):-A1 is A+1,A1=<3,write(H),nl,print_b_e(T,A1,NE,N).
 print_b_e([_|T],A,NE,N):-A1 is A+1,A1>3,A1=<NE,print_b_e(T,A1,NE,N).
 print_b_e([H|T],A,NE,N):-A1 is A+1,A1>NE,A1=<N,write(H),nl,print_b_e(T,A1,NE,N).
+
+%Task 5
+pr7_5(List):-find_last_el(List,Last),find_copy(List,0,Last).
+find_last_el([H|[]],H):-!.
+find_last_el([_|T],Last):-find_last_el(T,Last).
+find_copy([],_,_):-!.
+find_copy([H|T],A,Last):-A1 is A+1,H =:= Last,write(A1),nl,find_copy(T,A1,Last).
+find_copy([_|T],A,Last):-A1 is A+1,find_copy(T,A1,Last).
