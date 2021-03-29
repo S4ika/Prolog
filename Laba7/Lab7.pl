@@ -120,3 +120,9 @@ rez([H|T],A,Nstr,Res):-A1 is A+1,Nstr1 = [H|Nstr],rez(T,A1,Nstr1,Res).
 add_o(Res,12):-write_str(Res),!.
 add_o(Stroka,Size):-Size < 12,Size1 is Size+1,add_to_end(Stroka,111,Res),add_o(Res,Size1).
 add_to_end(Stroka,Symb,Res):-reverse(Stroka,Nstr),Nstr1 =[[Symb]|Nstr],reverse(Nstr1,Res).
+
+%Task 13
+pr7_13:-read_str(Stroka,_),zamena(Stroka,0,[],Res),reverse(Res,NRes),write_str(NRes).
+zamena([],_,Temp,Temp):-!.
+zamena([H|T],A,Temp,Res):-A1 is A+1,A1 mod 2 =:= 0,((H =:=97;H=:=98)->Temp1 =[99|Temp];Temp1 = [97|Temp]),zamena(T,A1,Temp1,Res).
+zamena([H|T],A,Temp,Res):-A1 is A+1,A1 mod 2 =\= 0,Temp1 = [H|Temp],zamena(T,A1,Temp1,Res).
