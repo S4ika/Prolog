@@ -151,3 +151,9 @@ del_abc([],T,T):-!.
 del_abc([97,98,99,H|T],Temp,Res):-H>=48,H=<57,Temp1 = [H|Temp],del_abc(T,Temp1,Res).
 del_abc([H|T],Temp,Res):-Temp1 = [H|Temp],del_abc(T,Temp1,Res).
 
+%Task 19
+pr7_19:-read_str(Stroka,_),kolvo_aba(Stroka,0,Res),write(Res).
+kolvo_aba([],Res,Res):-!.
+kolvo_aba([97,98,97|T],A,Res):-A1 is A+1,kolvo_aba(T,A1,Res).
+kolvo_aba([_|T],A,Res):-kolvo_aba(T,A,Res).
+
