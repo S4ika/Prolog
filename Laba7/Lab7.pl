@@ -106,3 +106,9 @@ find_let([_|T]):-find_let(T).
 pr7_9:-write('Введите 1ю строку'),nl,read_str(Str1,N1),write('Введите 2ю строку'),nl,read_str(Str2,N2),(N1>N2 ->Rzn is N1 - N2,print_razn_str(Str1,Rzn);Rzn is N2-N1,print_razn_str(Str2,Rzn)).
 print_razn_str(_,0):-!.
 print_razn_str(Stroka,Lnght):-write_str(Stroka),nl,Lnght1 is Lnght-1,print_razn_str(Stroka,Lnght1).
+
+%Task 10
+pr7_10:-read_str(Stroka,_),obr_str(Stroka,Newstr),write_str(Newstr).
+obr_str([H1|[H2|[H3|T]]],Newstr):-H1 == 97,H2 == 98, H3 == 99,Newstr = [119,119,119|T],!.
+obr_str(Str,Newstr):-add_z(Str,Nstr),reverse(Nstr,Newstr).
+add_z(Str,Nstr):-reverse(Str,Temp),Nstr = [122,122,122|Temp].
