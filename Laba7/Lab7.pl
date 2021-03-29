@@ -139,3 +139,9 @@ soderzhanie_a_b_c([]):-!.
 soderzhanie_a_b_c([H|T]):-H>=97,H=<99,soderzhanie_a_b_c(T).
 soderzhanie_a_b_c(_):-!,fail.
 
+%Task 17
+pr7_17:-read_str(Stroka,_),del_x(Stroka,[],Res),reverse(Res,Nres),write_str(Nres).
+del_x([],T,T):-!.
+del_x([120,97,98,99|T],Temp,Res):-Temp1 = [99,98,97|Temp],del_x(T,Temp1,Res).
+del_x([H|T],Temp,Res):-Temp1 = [H|Temp],del_x(T,Temp1,Res).
+
