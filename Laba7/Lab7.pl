@@ -95,3 +95,9 @@ find_p_m([H1|[H2|T]],A,B,CountPaM,Count0):-(H1 is 43;H1 is 45),
  A1 is A+1,(H2 = 48 ->B1 is B+1,find_p_m([H2|T],A1,B1,CountPaM,Count0);find_p_m([H2|T],A1,B,CountPaM,Count0)).
 
 find_p_m([_|T],A,B,CountPaM,Count0):-find_p_m(T,A,B,CountPaM,Count0).
+
+%Task 8
+pr7_8:-read_str(Stroka,_),find_let(Stroka).
+find_let([]):-write('Ничего не нашли'),!.
+find_let([H|_]):-(H == 120;H==119),write('Первым нашли символ :'),put(H),!.
+find_let([_|T]):-find_let(T).
