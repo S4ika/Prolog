@@ -101,3 +101,8 @@ pr7_8:-read_str(Stroka,_),find_let(Stroka).
 find_let([]):-write('Ничего не нашли'),!.
 find_let([H|_]):-(H == 120;H==119),write('Первым нашли символ :'),put(H),!.
 find_let([_|T]):-find_let(T).
+
+%Task 9
+pr7_9:-write('Введите 1ю строку'),nl,read_str(Str1,N1),write('Введите 2ю строку'),nl,read_str(Str2,N2),(N1>N2 ->Rzn is N1 - N2,print_razn_str(Str1,Rzn);Rzn is N2-N1,print_razn_str(Str2,Rzn)).
+print_razn_str(_,0):-!.
+print_razn_str(Stroka,Lnght):-write_str(Stroka),nl,Lnght1 is Lnght-1,print_razn_str(Stroka,Lnght1).
