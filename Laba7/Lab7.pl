@@ -74,7 +74,7 @@ print_b_e([_|T],A,NE,N):-A1 is A+1,A1>3,A1=<NE,print_b_e(T,A1,NE,N).
 print_b_e([H|T],A,NE,N):-A1 is A+1,A1>NE,A1=<N,write(H),nl,print_b_e(T,A1,NE,N).
 
 %Task 5
-pr7_5(List):-find_last_el(List,Last),find_copy(List,0,Last).
+pr7_5:-read_str(Stroka,_),find_last_el(Stroka,Last),find_copy(Stroka,0,Last).
 find_last_el([H|[]],H):-!.
 find_last_el([_|T],Last):-find_last_el(T,Last).
 find_copy([],_,_):-!.
