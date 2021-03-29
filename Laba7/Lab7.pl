@@ -112,3 +112,11 @@ pr7_10:-read_str(Stroka,_),obr_str(Stroka,Newstr),write_str(Newstr).
 obr_str([H1|[H2|[H3|T]]],Newstr):-H1 == 97,H2 == 98, H3 == 99,Newstr = [119,119,119|T],!.
 obr_str(Str,Newstr):-add_z(Str,Nstr),reverse(Nstr,Newstr).
 add_z(Str,Nstr):-reverse(Str,Temp),Nstr = [122,122,122|Temp].
+
+%Task 11
+pr7_11:-read_str(Stroka,Size),(Size > 10 -> rez(Stroka,0,[],Res),write_str(Res);add_o(Stroka,Size)).
+rez(_,6,Temp,Res):-reverse(Temp,Res),!.
+rez([H|T],A,Nstr,Res):-A1 is A+1,Nstr1 = [H|Nstr],rez(T,A1,Nstr1,Res).
+add_o(Res,12):-write_str(Res),!.
+add_o(Stroka,Size):-Size < 12,Size1 is Size+1,add_to_end(Stroka,111,Res),add_o(Res,Size1).
+add_to_end(Stroka,Symb,Res):-reverse(Stroka,Nstr),Nstr1 =[[Symb]|Nstr],reverse(Nstr1,Res).
