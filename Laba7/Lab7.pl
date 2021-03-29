@@ -132,3 +132,10 @@ pr7_14:-read_str(Stroka,_),kolvo_cifr(Stroka,0,Kolvo),write(Kolvo).
 kolvo_cifr([],Kolvo,Kolvo):-!.
 kolvo_cifr([H|T],A,Kolvo):-H>=48,H=<57,A1 is A+1,kolvo_cifr(T,A1,Kolvo).
 kolvo_cifr([_|T],A,Kolvo):-kolvo_cifr(T,A,Kolvo).
+
+%Task 15
+pr7_15:-read_str(Stroka,_),soderzhanie_a_b_c(Stroka).
+soderzhanie_a_b_c([]):-!.
+soderzhanie_a_b_c([H|T]):-H>=97,H=<99,soderzhanie_a_b_c(T).
+soderzhanie_a_b_c(_):-!,fail.
+
