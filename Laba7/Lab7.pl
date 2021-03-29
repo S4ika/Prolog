@@ -82,7 +82,7 @@ find_copy([H|T],A,Last):-A1 is A+1,H =:= Last,write(A1),nl,find_copy(T,A1,Last).
 find_copy([_|T],A,Last):-A1 is A+1,find_copy(T,A1,Last).
 
 %Task 6
-pr7_6(List):-show_3_mult_el(List,0).
+pr7_6:-read_str(Stroka,_),show_3_mult_el(Stroka,0).
 show_3_mult_el([],_):-!.
 show_3_mult_el([H|T],A):-A1 is A+1,A2 is A1 mod 3,A2 =:= 0,write(H),nl,show_3_mult_el(T,A1).
 show_3_mult_el([_|T],A):-A1 is A+1,A2 is A1 mod 3,A2 \= 0,show_3_mult_el(T,A1).
