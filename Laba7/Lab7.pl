@@ -86,3 +86,12 @@ pr7_6:-read_str(Stroka,_),show_3_mult_el(Stroka,0).
 show_3_mult_el([],_):-!.
 show_3_mult_el([H|T],A):-A1 is A+1,A2 is A1 mod 3,A2 =:= 0,write(H),nl,show_3_mult_el(T,A1).
 show_3_mult_el([_|T],A):-A1 is A+1,A2 is A1 mod 3,A2 \= 0,show_3_mult_el(T,A1).
+
+%Task 7
+pr7_7:-read_str(Stroka,_),find_p_m(Stroka,0,0,_,_).
+find_p_m([],CountPaM,Count0,CountPaM,Count0):-write('Count + & - :'),write(CountPaM),nl,
+ write('Count 0 after +&- :'),write(Count0),!.
+find_p_m([H1|[H2|T]],A,B,CountPaM,Count0):-(H1 is 43;H1 is 45),
+ A1 is A+1,(H2 = 48 ->B1 is B+1,find_p_m([H2|T],A1,B1,CountPaM,Count0);find_p_m([H2|T],A1,B,CountPaM,Count0)).
+
+find_p_m([_|T],A,B,CountPaM,Count0):-find_p_m(T,A,B,CountPaM,Count0).
