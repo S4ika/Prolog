@@ -126,3 +126,9 @@ pr7_13:-read_str(Stroka,_),zamena(Stroka,0,[],Res),reverse(Res,NRes),write_str(N
 zamena([],_,Temp,Temp):-!.
 zamena([H|T],A,Temp,Res):-A1 is A+1,A1 mod 2 =:= 0,((H =:=97;H=:=98)->Temp1 =[99|Temp];Temp1 = [97|Temp]),zamena(T,A1,Temp1,Res).
 zamena([H|T],A,Temp,Res):-A1 is A+1,A1 mod 2 =\= 0,Temp1 = [H|Temp],zamena(T,A1,Temp1,Res).
+
+%Task 14
+pr7_14:-read_str(Stroka,_),kolvo_cifr(Stroka,0,Kolvo),write(Kolvo).
+kolvo_cifr([],Kolvo,Kolvo):-!.
+kolvo_cifr([H|T],A,Kolvo):-H>=48,H=<57,A1 is A+1,kolvo_cifr(T,A1,Kolvo).
+kolvo_cifr([_|T],A,Kolvo):-kolvo_cifr(T,A,Kolvo).
