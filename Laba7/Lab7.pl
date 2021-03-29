@@ -145,3 +145,9 @@ del_x([],T,T):-!.
 del_x([120,97,98,99|T],Temp,Res):-Temp1 = [99,98,97|Temp],del_x(T,Temp1,Res).
 del_x([H|T],Temp,Res):-Temp1 = [H|Temp],del_x(T,Temp1,Res).
 
+%Task 18
+pr7_18:-read_str(Stroka,_),del_abc(Stroka,[],Res),reverse(Res,Nres),write_str(Nres).
+del_abc([],T,T):-!.
+del_abc([97,98,99,H|T],Temp,Res):-H>=48,H=<57,Temp1 = [H|Temp],del_abc(T,Temp1,Res).
+del_abc([H|T],Temp,Res):-Temp1 = [H|Temp],del_abc(T,Temp1,Res).
+
