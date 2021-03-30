@@ -121,6 +121,15 @@ add_o(Res,12):-write_str(Res),!.
 add_o(Stroka,Size):-Size < 12,Size1 is Size+1,add_to_end(Stroka,111,Res),add_o(Res,Size1).
 add_to_end(Stroka,Symb,Res):-reverse(Stroka,Nstr),Nstr1 =[[Symb]|Nstr],reverse(Nstr1,Res).
 
+%Task 12 
+pr7_12:-read_str(Stroka,_),preobr(Stroka).
+preobr([]):-!.
+preobr(Stroka):-slice3(Stroka,0,[],Rez3,Nend),add_rand_el(Rez3,ResAdd),sort(ResAdd,ResSort),write_str(ResSort),nl,preobr(Nend).
+slice3([],_,Res,Res,[]):-!.
+slice3(Str,3,Res,Res,Str):-!.%reverse(N,Res),write(Res),nl,!.
+slice3([H|T],A,Nstr,Res,Nend):-A<3,A1 is A+1,append(Nstr,[H],Nstr1),slice3(T,A1,Nstr1,Res,Nend).
+add_rand_el([H1,H2,H3],ResAdd):-El  is random(255),(not(in_list([H1,H2,H3],El))->ResAdd=[H1,El,H3],!;add_rand_el([H1,H2,H3],ResAdd)).
+
 %Task 13
 pr7_13:-read_str(Stroka,_),zamena(Stroka,0,[],Res),reverse(Res,NRes),write_str(NRes).
 zamena([],_,Temp,Temp):-!.
