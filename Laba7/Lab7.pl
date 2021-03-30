@@ -148,6 +148,12 @@ soderzhanie_a_b_c([]):-!.
 soderzhanie_a_b_c([H|T]):-H>=97,H=<99,soderzhanie_a_b_c(T).
 soderzhanie_a_b_c(_):-!,fail.
 
+%Task 16 
+pr7_16:-read_str(Stroka,_),zmn_wrd(Stroka,[],Res),reverse(Res,Nres),write_str(Nres).
+zmn_wrd([],Res,Res):-!.
+zmn_wrd([119,111,114,100|Tail],Temp,Res):-Temp1 = [114,101,116,116,101,108|Temp],zmn_wrd(Tail,Temp1,Res).
+zmn_wrd([H|Tail],Temp,Res):-Temp1 = [H|Temp],zmn_wrd(Tail,Temp1,Res).
+
 %Task 17
 pr7_17:-read_str(Stroka,_),del_x(Stroka,[],Res),reverse(Res,Nres),write_str(Nres).
 del_x([],T,T):-!.
