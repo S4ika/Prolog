@@ -172,3 +172,12 @@ kolvo_aba([],Res,Res):-!.
 kolvo_aba([97,98,97|T],A,Res):-A1 is A+1,kolvo_aba(T,A1,Res).
 kolvo_aba([_|T],A,Res):-kolvo_aba(T,A,Res).
 
+% Task 20 
+pr7_20:-read_str(Stroka,_),del_beg_space(Stroka,Stroka_bs),del_space(Stroka_bs,[],Res),del_beg_space(Res,Res1),write_str(Res1).
+del_beg_space([H|T],B_S):-H =:= 32,del_beg_space(T,B_S).
+del_beg_space([H|T],[H|T]):-H=\=32,!.
+del_space([],Temp,Temp):-!.
+del_space([32],Temp,Temp):-!.
+del_space([32,32|T],Temp,Res):-del_space([32|T],Temp,Res).
+del_space([32,H|T],Temp,Res):-H=\=32,append(Temp,[32,H],Temp1),del_space(T,Temp1,Res).
+del_space([H|T],Temp,Res):-append(Temp,[H],Temp1),del_space(T,Temp1,Res).
