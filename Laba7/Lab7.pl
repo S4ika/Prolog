@@ -181,3 +181,11 @@ del_space([32],Temp,Temp):-!.
 del_space([32,32|T],Temp,Res):-del_space([32|T],Temp,Res).
 del_space([32,H|T],Temp,Res):-H=\=32,append(Temp,[32,H],Temp1),del_space(T,Temp1,Res).
 del_space([H|T],Temp,Res):-append(Temp,[H],Temp1),del_space(T,Temp1,Res).
+
+%Task 21
+pr7_21:-read_str(Stroka1,_),read_str(Stroka2,_),find_w(Stroka1,Stroka2).
+find_w([],_):-write("We found all the words!!!Wow!!!"),!.
+find_w(Stroka1,Stroka2):-find_w(Stroka1,Stroka2,[],Word,0,End),write_str(Word),nl,find_w(End,Stroka2).
+find_w([H|T],Stroka2,Temp,Temp,1,[H|T]):-in_list(Stroka2,H),!.
+find_w([H|T],Stroka2,Temp,Word,_,End):-in_list(Stroka2,H),Flag1 is 1,find_w(T,Stroka2,Temp,Word,Flag1,End).
+find_w([H|T],Stroka2,Temp,Word,1,End):-append(Temp,[H],Temp1),find_w(T,Stroka2,Temp1,Word,1,End).
