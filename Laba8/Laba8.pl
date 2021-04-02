@@ -40,3 +40,11 @@ wo_spc([_|T],Counter,Value):-wo_spc(T,Counter,Value).
 find_spc([]):-!,fail.
 find_spc([32|_]):-!.
 find_spc([_|T]):-find_spc(T).
+
+%Task 1_1
+pr8_1_1:-see('z:/prolog/8_1_1.txt'),read_list_str(List,_),seen,fnd_rs(List,0,Count),tell('z:/prolog/Out.txt'),write('Number of Russian letters : '),write(Count),told.
+fnd_rs([],A,A):-!.
+fnd_rs([H|T],A,Count):-find_rus(H,0,R),A1 is A+R,fnd_rs(T,A1,Count).
+find_rus([],A,A):-!.
+find_rus([H|T],A,Count):-H >= 1040,H =<1103,A1 is A+1,find_rus(T,A1,Count).
+find_rus([_|T],A,Count):-find_rus(T,A,Count).
