@@ -56,3 +56,18 @@ find_data([H|T]):-find_dt(H),find_data(T).
 find_dt([]):-!.
 find_dt([H1,H2,H3,H4,H5,H6,H7,H8,H9,H10|T]):-H1 =< 51,H1>=48,H2>=48,H2=<57,H3 == 46,H4=<49,H4>=48,H5>=46,H5=<57,H6==46,H7>=49,H7=<57,H8>=48,H8=<57,H9>=48,H9=<57,H10>=48,H10=<57,write_str([H1,H2,H3,H4,H5,H6,H7,H8,H9,H10]),nl,find_dt(T).
 find_dt([_|T]):-find_dt(T).
+
+pr8_5:-see('z:/prolog/8_5.txt'),read_list_str(List,N),seen,sortirovka(List,N,[],Res),tell('z:/prolog/Out.txt'),write_list_str(Res),told.
+
+sortirovka([],[],A,A):-!.
+
+sortirovka([H|T],[HL|TL],A,Res):-Max =HL, Max_str=H, sortirvka([H|T],[HL|TL], Max, Max_str, Stroka, Nom),append(A,[Stroka],A1),del([H|T], Stroka, List),del([HL|TL], Nom, ListL), sortirovka(List, ListL,A1,Res),!.
+
+sortirvka([],[], Max, Max_str,Max_str, Max):-!.
+sortirvka([H|T], [HL|TL], Max, Max_str, St,Nm):- (HL>Max-> Max1 = HL, Max_str1 = H,sortirvka(T, TL, Max1, Max_str1, St,Nm); sortirvka(T, TL, Max, Max_str,St,Nm)).
+
+del([H|T], X, List):-del([H|T],[],List,X, 1).
+del([],List,List,_,_):-!.
+del([H|T], Temp, List, X, 1):-(H=X-> del(T, Temp,List,X, 0)),!.
+del([H|T], Temp, List, X, 1):-append(Temp,[H], Temp1), del(T, Temp1, List, X,1).
+del([H|T], Temp, List, X, 0):-append(Temp,[H], Temp1), del(T, Temp1, List, X,1).
