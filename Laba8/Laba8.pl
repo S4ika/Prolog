@@ -26,3 +26,6 @@ max([_|T], CurMax, X):- max(T, CurMax, X).
 
 in_list(El|_,El).
 in_list([_|T],El):-in_list(T,El).
+
+%Task 1
+pr8_1:-see('z:/prolog/8_1.txt'),read_list_str(_,ListSize),seen,max(ListSize,Max),tell('z:/prolog/Out.txt'),write(Max),told.
