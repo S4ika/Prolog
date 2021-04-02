@@ -71,3 +71,11 @@ del([],List,List,_,_):-!.
 del([H|T], Temp, List, X, 1):-(H=X-> del(T, Temp,List,X, 0)),!.
 del([H|T], Temp, List, X, 1):-append(Temp,[H], Temp1), del(T, Temp1, List, X,1).
 del([H|T], Temp, List, X, 0):-append(Temp,[H], Temp1), del(T, Temp1, List, X,1).
+
+%Task 4_18
+pr8_4_18:-see('z:/prolog/8_4_18.txt'),read_list_str(List),seen,cifri_podryad(List,0,Res),tell('z:/prolog/Out.txt'),write(Res),told.
+cifri_podryad([],A,A):-!.
+cifri_podryad([H|T],A,Res):-cifri_v_str(H,0,0,R),(R>A->cifri_podryad(T,R,Res);cifri_podryad(T,A,Res)).
+cifri_v_str([],_,B,B):-!.
+cifri_v_str([H|T],A,B,Res):-H>=48,H=<57,A1 is A+1,cifri_v_str(T,A1,B,Res).
+cifri_v_str([_|T],A,B,Res):-(B>A->cifri_v_str(T,0,B,Res);cifri_v_str(T,0,A,Res)).
