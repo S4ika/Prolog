@@ -48,3 +48,11 @@ fnd_rs([H|T],A,Count):-find_rus(H,0,R),A1 is A+R,fnd_rs(T,A1,Count).
 find_rus([],A,A):-!.
 find_rus([H|T],A,Count):-H >= 1040,H =<1103,A1 is A+1,find_rus(T,A1,Count).
 find_rus([_|T],A,Count):-find_rus(T,A,Count).
+
+%Task 1_18
+pr8_1_18:-see('z:/prolog/8_1_18.txt'),read_list_str(List),seen,find_data(List).
+find_data([]):-!.
+find_data([H|T]):-find_dt(H),find_data(T).
+find_dt([]):-!.
+find_dt([H1,H2,H3,H4,H5,H6,H7,H8,H9,H10|T]):-H1 =< 51,H1>=48,H2>=48,H2=<57,H3 == 46,H4=<49,H4>=48,H5>=46,H5=<57,H6==46,H7>=49,H7=<57,H8>=48,H8=<57,H9>=48,H9=<57,H10>=48,H10=<57,write_str([H1,H2,H3,H4,H5,H6,H7,H8,H9,H10]),nl,find_dt(T).
+find_dt([_|T]):-find_dt(T).
