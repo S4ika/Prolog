@@ -29,3 +29,14 @@ in_list([_|T],El):-in_list(T,El).
 
 %Task 1
 pr8_1:-see('z:/prolog/8_1.txt'),read_list_str(_,ListSize),seen,max(ListSize,Max),tell('z:/prolog/Out.txt'),write(Max),told.
+
+%Task 2
+pr8_2:-see('z:/prolog/8_2.txt'),read_list_str(List),seen,wo_spc(List,Value),tell('z:/prolog/out.txt'),write(Value),told.
+wo_spc(List,Value):-wo_spc(List,0,Value).
+wo_spc([],Counter,Counter):-!.
+wo_spc([H|T],Counter,Value):-not(find_spc(H)),Counter1 is Counter+1,wo_spc(T,Counter1,Value).
+wo_spc([_|T],Counter,Value):-wo_spc(T,Counter,Value).
+
+find_spc([]):-!,fail.
+find_spc([32|_]):-!.
+find_spc([_|T]):-find_spc(T).
